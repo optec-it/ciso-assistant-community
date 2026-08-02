@@ -131,7 +131,7 @@
 						type="text"
 						name="primary_color"
 						bind:value={primaryColor}
-						pattern="^#[0-9a-fA-F]{6}$"
+						pattern="#[0-9a-fA-F]{6}"
 					/>
 				</div>
 			</div>
@@ -152,7 +152,7 @@
 						type="text"
 						name="accent_color"
 						bind:value={accentColor}
-						pattern="^#[0-9a-fA-F]{6}$"
+						pattern="#[0-9a-fA-F]{6}"
 					/>
 				</div>
 			</div>
