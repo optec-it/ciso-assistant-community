@@ -157,6 +157,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 		event.locals.featureFlags = loadFeatureFlags();
 
+		try {
+			const brandingRes = await fetch(`${BASE_API_URL}/settings/branding/info/`);
+			event.locals.branding = brandingRes.ok ? await brandingRes.json() : null;
+		} catch {
+			event.locals.branding = null;
+		}
+
 		await ensureCsrfToken(event);
 
 		if (event.locals.user) {

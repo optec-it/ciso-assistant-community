@@ -8,6 +8,7 @@
 	import WebhooksSettings from '$lib/components/Settings/WebhooksSettings.svelte';
 	import VulnerabilitySlaSettings from '$lib/components/Settings/VulnerabilitySlaSettings.svelte';
 	import SecIntelFeedsSettings from '$lib/components/Settings/SecIntelFeedsSettings.svelte';
+	import BrandingSettings from '$lib/components/Settings/BrandingSettings.svelte';
 
 	import { goto } from '$app/navigation';
 
@@ -33,6 +34,9 @@
 		>
 		<Tabs.Trigger value="secIntelFeeds"
 			><i class="fa-solid fa-satellite-dish"></i> {m.secIntelFeeds()}</Tabs.Trigger
+		>
+		<Tabs.Trigger value="branding"
+			><i class="fa-solid fa-palette"></i> {m.branding()}</Tabs.Trigger
 		>
 		{#if page.data?.featureflags?.outgoing_webhooks}
 			<Tabs.Trigger value="webhooks"
@@ -74,5 +78,8 @@
 	</Tabs.Content>
 	<Tabs.Content value="secIntelFeeds">
 		<SecIntelFeedsSettings {data} />
+	</Tabs.Content>
+	<Tabs.Content value="branding">
+		<BrandingSettings {data} />
 	</Tabs.Content>
 </Tabs>

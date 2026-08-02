@@ -20,6 +20,7 @@ from .serializers import (
     VulnerabilitySlaSerializer,
     SecIntelFeedsSerializer,
     InfraConfigSerializer,
+    BrandingSerializer,
 )
 from django.db import transaction
 from .models import GlobalSettings
@@ -482,3 +483,53 @@ def get_default_language(request):
         default_language = "en"
 
     return Response({"default_language": default_language})
+
+
+class BrandingViewSet(viewsets.ModelViewSet):
+    model = GlobalSettings
+    serializer_class = BrandingSerializer
+    queryset = GlobalSettings.objects.filter(name="branding")
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+    def get_object(self):
+        obj, _ = self.model.objects.get_or_create(name="branding")
+        obj.is_published = True
+        obj.save(update_fields=["is_published"])
+        self.check_object_permissions(self.request, obj)
+        return obj
+
+    @action(detail=True, methods=["get"])
+    def defaults(self, request, pk=None):
+        serializer = self.get_serializer_class()()
+        field_defaults = {
+            name: field.default
+            for name, field in serializer.fields.items()
+            if name not in serializer.Meta.read_only_fields
+            and getattr(field, "default", serializers.empty) is not serializers.empty
+        }
+        return Response(field_defaults)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def get_branding_info(request):
+    branding = GlobalSettings.objects.filter(name="branding").first()
+    value = branding.value if branding and isinstance(branding.value, dict) else {}
+    return Response({
+        "app_name": value.get("app_name") or "Optec GRC",
+        "logo_data": value.get("logo_data"),
+        "favicon_data": value.get("favicon_data"),
+        "primary_color": value.get("primary_color") or "#006aff",
+        "accent_color": value.get("accent_color") or "#ff8a5b",
+    })

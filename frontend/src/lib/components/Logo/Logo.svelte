@@ -1,5 +1,6 @@
 <script lang="ts">
-	import ciso from '$lib/assets/ciso.svg';
+	import { page } from '$app/stores';
+	import optecMark from '$lib/assets/optec-mark.webp';
 
 	interface Props {
 		height?: number;
@@ -7,6 +8,9 @@
 	}
 
 	let { height = 200, width = 200 }: Props = $props();
+
+	const branding = $derived($page.data?.branding);
+	const src = $derived(branding?.logo_data ?? optecMark);
 </script>
 
-<img class="c" {height} {width} src={ciso} alt="Ciso-assistant icon" data-testid="logo-image" />
+<img class="c" {height} {width} {src} alt={branding?.app_name ?? 'Optec GRC'} data-testid="logo-image" />

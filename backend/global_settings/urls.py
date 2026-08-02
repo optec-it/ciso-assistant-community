@@ -8,11 +8,13 @@ from .views import (
     GlobalSettingsViewSet,
     get_default_language,
     get_sso_info,
+    get_branding_info,
     GeneralSettingsViewSet,
     FeatureFlagsViewSet,
     VulnerabilitySlaViewSet,
     SecIntelFeedsViewSet,
     InfraConfigViewSet,
+    BrandingViewSet,
 )
 from .routers import DefaultSettingsRouter
 
@@ -57,6 +59,12 @@ if getattr(settings, "ENABLE_INFRA_CONFIG_MANAGEMENT", False):
         basename="infra-config",
     )
 
+settings_router.register(
+    r"branding",
+    BrandingViewSet,
+    basename="branding",
+)
+
 
 urlpatterns = [
     path(r"", include(router.urls)),
@@ -67,4 +75,5 @@ urlpatterns = [
         get_default_language,
         name="get_default_language",
     ),
+    path(r"branding/info/", get_branding_info, name="get_branding_info"),
 ]

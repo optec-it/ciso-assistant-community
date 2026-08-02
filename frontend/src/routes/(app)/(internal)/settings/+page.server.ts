@@ -11,7 +11,8 @@ import {
 	VulnerabilitySlaSchema,
 	SecIntelFeedsSchema,
 	webhookEndpointSchema,
-	auditSinkSchema
+	auditSinkSchema,
+	BrandingSchema
 } from '$lib/utils/schemas';
 import { fail, type Actions } from '@sveltejs/kit';
 import { setFlash } from 'sveltekit-flash-message/server';
@@ -98,6 +99,13 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		(res) => res.json()
 	);
 
+	const brandingSettings = await fetch(`${BASE_API_URL}/settings/branding/`)
+		.then((res) => (res.ok ? res.json() : {}))
+		.catch(() => ({}));
+	const brandingDefaults = await fetch(`${BASE_API_URL}/settings/branding/defaults/`)
+		.then((res) => (res.ok ? res.json() : {}))
+		.catch(() => ({}));
+
 	const ssoForm = await superValidate(ssoSettings, zod(SSOSettingsSchema), { errors: false });
 	const generalSettingForm = await superValidate(generalSettings, zod(GeneralSettingsSchema), {
 		errors: false
@@ -111,6 +119,9 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		{ errors: false }
 	);
 	const secIntelFeedsForm = await superValidate(secIntelFeedsSettings, zod(SecIntelFeedsSchema), {
+		errors: false
+	});
+	const brandingForm = await superValidate(brandingSettings, zod(BrandingSchema), {
 		errors: false
 	});
 	const webhookEndpointCreateForm = await superValidate(zod(webhookEndpointSchema), {
@@ -150,6 +161,9 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		auditSinks,
 		auditSinkCreateForm,
 		scimTokens,
+		brandingSettings,
+		brandingForm,
+		brandingDefaults,
 		title: m.settings()
 	};
 };
@@ -321,6 +335,50 @@ export const actions: Actions = {
 		setFlash({ type: 'success', message: m.secIntelFeedsSettingsUpdated() }, event);
 
 		return { form };
+	},
+	branding: async (event) => {
+		const formData = await event.request.formData();
+
+		if (!formData) {
+			return fail(400, { form: null });
+		}
+
+		const schema = BrandingSchema;
+		const form = await superValidate(formData, zod(schema));
+		const endpoint = `${BASE_API_URL}/settings/branding/`;
+
+		const requestInitOptions: RequestInit = {
+			method: 'PUT',
+			body: JSON.stringify(form.data)
+		};
+
+		const response = await event.fetch(endpoint, requestInitOptions);
+
+		if (!response.ok) return handleErrorResponse({ event, response, form });
+
+		setFlash({ type: 'success', message: m.brandingSettingsUpdated() }, event);
+
+		return { form };
+	},
+	brandingReset: async (event) => {
+		const defaults = await event.fetch(`${BASE_API_URL}/settings/branding/defaults/`)
+			.then((res) => (res.ok ? res.json() : {}))
+			.catch(() => ({}));
+
+		const endpoint = `${BASE_API_URL}/settings/branding/`;
+
+		const requestInitOptions: RequestInit = {
+			method: 'PUT',
+			body: JSON.stringify(defaults)
+		};
+
+		const response = await event.fetch(endpoint, requestInitOptions);
+
+		if (!response.ok) return fail(500, { error: 'Reset failed' });
+
+		setFlash({ type: 'success', message: m.brandingResetToDefaults() }, event);
+
+		return {};
 	},
 	generateSamlKeys: async (event) => {
 		const response = await event.fetch(`${BASE_API_URL}/accounts/saml/0/generate-keys/`, {

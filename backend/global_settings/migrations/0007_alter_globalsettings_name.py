@@ -1,0 +1,28 @@
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+    dependencies = [
+        ("global_settings", "0006_alter_globalsettings_options"),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name="globalsettings",
+            name="name",
+            field=models.CharField(
+                choices=[
+                    ("general", "General"),
+                    ("sso", "SSO"),
+                    ("feature-flags", "Feature Flags"),
+                    ("vulnerability-sla", "Vulnerability SLA"),
+                    ("sec-intel-feeds", "Vulnerability Feeds"),
+                    ("infra-config", "Infra config"),
+                    ("branding", "Branding"),
+                ],
+                default="general",
+                max_length=30,
+                unique=True,
+            ),
+        ),
+    ]

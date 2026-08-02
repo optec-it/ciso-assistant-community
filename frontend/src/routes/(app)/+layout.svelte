@@ -150,7 +150,7 @@
 </script>
 
 <svelte:head>
-	<title>CISO Assistant | {safeTranslate(displayTitle)}</title>
+	<title>{$page.data?.branding?.app_name ?? 'Optec GRC'} | {safeTranslate(displayTitle)}</title>
 </svelte:head>
 
 <!-- App Shell -->
@@ -164,7 +164,7 @@
 		<div class="flex items-start justify-between px-4">
 			<div>
 				<div
-					class="text-2xl font-bold pb-1 bg-linear-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent"
+					class="text-2xl font-bold pb-1 bg-linear-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent"
 					id="page-title"
 				>
 					{safeTranslate(displayTitle)}

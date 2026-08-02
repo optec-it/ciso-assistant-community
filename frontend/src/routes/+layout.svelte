@@ -89,10 +89,11 @@
 	});
 
 	interface Props {
+		data?: any;
 		children?: import('svelte').Snippet;
 	}
 
-	let { children }: Props = $props();
+	let { data, children }: Props = $props();
 
 	const modalRegistry: Record<string, ModalComponent> = {
 		// Set a unique modal ID, then pass the component reference
@@ -110,7 +111,18 @@
 	});
 </script>
 
-<svelte:head><link rel="icon" href="/favicon.ico" /></svelte:head>
+<svelte:head>
+	{#if $page.data?.branding?.favicon_data}
+		<link rel="icon" href={$page.data.branding.favicon_data} />
+	{:else}
+		<link rel="icon" href="/favicon.webp" />
+	{/if}
+	{#if $page.data?.branding?.primary_color && $page.data.branding.primary_color !== '#006aff' || $page.data?.branding?.accent_color && $page.data.branding.accent_color !== '#ff8a5b'}
+		{@const pc = $page.data?.branding?.primary_color ?? '#006aff'}
+		{@const ac = $page.data?.branding?.accent_color ?? '#ff8a5b'}
+		{@html `<style>[data-theme='cisotheme']{--color-primary-400:${pc};--color-primary-500:${pc};--color-primary-600:${pc};--color-secondary-400:${ac};--color-secondary-500:${ac};--color-secondary-600:${ac};}</style>`}
+	{/if}
+</svelte:head>
 <Dialog components={modalRegistry} />
 <Toast zIndex="z-[1000]" />
 {@render children?.()}

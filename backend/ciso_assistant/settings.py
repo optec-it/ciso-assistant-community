@@ -790,8 +790,8 @@ PASSWORD_HASHERS = [
 ]
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "CISO Assistant API - Experimental",
-    "DESCRIPTION": "CISO Assistant - API Documentation for automating all your GRC needs",
+    "TITLE": "Optec GRC API - Experimental",
+    "DESCRIPTION": "Optec GRC - API Documentation for automating all your GRC needs",
     "VERSION": "0.7.0",
     "SERVE_INCLUDE_SCHEMA": False,
     # OTHER SETTINGS

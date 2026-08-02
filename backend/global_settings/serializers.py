@@ -1,7 +1,9 @@
+import base64
 import ipaddress
 import re
 import uuid
 
+import magic
 from django.conf import settings as django_settings
 from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework import serializers
@@ -14,6 +16,12 @@ from core.net_safety import (
     assert_public_url_unless_dev,
 )
 from .models import GlobalSettings
+
+HEX_COLOR_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
+MAX_LOGO_BYTES = 500 * 1024
+MAX_FAVICON_BYTES = 100 * 1024
+ALLOWED_IMAGE_MIMES = {"image/png", "image/jpeg", "image/webp"}
+ALLOWED_FAVICON_MIMES = ALLOWED_IMAGE_MIMES | {"image/x-icon", "image/vnd.microsoft.icon"}
 
 
 def canonical_ip_or_cidr(value: str) -> str:
@@ -717,6 +725,110 @@ class SecIntelFeedsSerializer(serializers.ModelSerializer):
 
                 if current_value_dict.get(source_key) != new_flag_value:
                     current_value_dict[source_key] = new_flag_value
+                    value_changed = True
+
+        if value_changed:
+            instance.value = current_value_dict
+            instance.save(update_fields=["value"])
+
+        return instance
+
+
+def _validate_image_data(value, max_bytes, allowed_mimes, field_label):
+    """Decode a data-URL or raw base64 string and enforce size/MIME limits."""
+    if not value:
+        return None
+    raw = value
+    if raw.startswith("data:"):
+        try:
+            raw = raw.split(",", 1)[1]
+        except IndexError:
+            raise serializers.ValidationError(f"Invalid data URL for {field_label}.")
+    try:
+        decoded = base64.b64decode(raw, validate=True)
+    except Exception:
+        raise serializers.ValidationError(f"Invalid base64 for {field_label}.")
+    if len(decoded) > max_bytes:
+        limit_kb = max_bytes // 1024
+        raise serializers.ValidationError(
+            f"{field_label} exceeds {limit_kb} KB limit."
+        )
+    mime = magic.from_buffer(decoded, mime=True)
+    if mime not in allowed_mimes:
+        raise serializers.ValidationError(
+            f"{field_label} must be one of {', '.join(sorted(allowed_mimes))}; got {mime}."
+        )
+    return value
+
+
+class BrandingSerializer(serializers.ModelSerializer):
+    app_name = serializers.CharField(
+        source="value.app_name", required=False, allow_blank=True,
+        default="Optec GRC", max_length=100,
+    )
+    logo_data = serializers.CharField(
+        source="value.logo_data", required=False, allow_null=True,
+        allow_blank=True, default=None,
+    )
+    favicon_data = serializers.CharField(
+        source="value.favicon_data", required=False, allow_null=True,
+        allow_blank=True, default=None,
+    )
+    primary_color = serializers.CharField(
+        source="value.primary_color", required=False, default="#006aff",
+    )
+    accent_color = serializers.CharField(
+        source="value.accent_color", required=False, default="#ff8a5b",
+    )
+
+    class Meta:
+        model = GlobalSettings
+        exclude = [
+            "id", "created_at", "updated_at", "name", "value",
+            "folder", "is_published",
+        ]
+        read_only_fields = ["name"]
+
+    def validate_primary_color(self, value):
+        if not HEX_COLOR_RE.fullmatch(value):
+            raise serializers.ValidationError("Must be a hex color like #006aff.")
+        return value
+
+    def validate_accent_color(self, value):
+        if not HEX_COLOR_RE.fullmatch(value):
+            raise serializers.ValidationError("Must be a hex color like #ff8a5b.")
+        return value
+
+    def validate_logo_data(self, value):
+        return _validate_image_data(value, MAX_LOGO_BYTES, ALLOWED_IMAGE_MIMES, "Logo")
+
+    def validate_favicon_data(self, value):
+        return _validate_image_data(
+            value, MAX_FAVICON_BYTES, ALLOWED_FAVICON_MIMES, "Favicon"
+        )
+
+    def update(self, instance, validated_data):
+        current_value_dict = instance.value if isinstance(instance.value, dict) else {}
+        value_changed = False
+        new_value_dict = validated_data.get("value", {})
+
+        for field_name, field_instance in self.fields.items():
+            if field_name in self.Meta.read_only_fields:
+                continue
+            if not hasattr(
+                field_instance, "source"
+            ) or not field_instance.source.startswith("value."):
+                continue
+
+            if field_name in new_value_dict:
+                source_key = field_instance.source.split(".")[-1]
+                new_val = new_value_dict[field_name]
+
+                if current_value_dict.get(source_key) != new_val:
+                    if new_val is None or new_val == "":
+                        current_value_dict.pop(source_key, None)
+                    else:
+                        current_value_dict[source_key] = new_val
                     value_changed = True
 
         if value_changed:
