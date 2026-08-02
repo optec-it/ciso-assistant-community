@@ -24,6 +24,8 @@ services:
 
     volumes:
       - ./db:/code/db
+    ports:
+      - 127.0.0.1:8000:8000
     user: "1001:1001"
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://backend:8000/api/health/ || exit 1"]
@@ -91,6 +93,8 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+    ports:
+      - 127.0.0.1:3000:3000
     user: "1001:1001"
 
   qdrant:
@@ -111,14 +115,14 @@ services:
       backend:
         condition: service_healthy
     restart: unless-stopped
-    ports:
-      - 100.75.81.223:443:8443
+    network_mode: host
     volumes:
       - ./db/caddy:/data/caddy
     command: |
       sh -c 'echo $$CISO_ASSISTANT_URL "{
-      reverse_proxy /api/* backend:8000
-      reverse_proxy /* frontend:3000
+      bind 100.75.81.223
+      reverse_proxy /api/* 127.0.0.1:8000
+      reverse_proxy /* 127.0.0.1:3000
       tls internal
       }" > Caddyfile && caddy run'
 
