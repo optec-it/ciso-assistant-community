@@ -5,8 +5,8 @@ services:
     pull_policy: always
     restart: always
     environment:
-      - ALLOWED_HOSTS=backend,localhost,services-grc.netbird.selfhosted
-      - CISO_ASSISTANT_URL=https://services-grc.netbird.selfhosted
+      - ALLOWED_HOSTS=backend,localhost,grc.optec.wales,services-grc.netbird.selfhosted
+      - CISO_ASSISTANT_URL=https://grc.optec.wales
       - DJANGO_DEBUG=False
       - AUTH_TOKEN_TTL=7200
       - HOME=/tmp
@@ -43,8 +43,8 @@ services:
         condition: service_healthy
     restart: always
     environment:
-      - ALLOWED_HOSTS=backend,localhost,services-grc.netbird.selfhosted
-      - CISO_ASSISTANT_URL=https://services-grc.netbird.selfhosted
+      - ALLOWED_HOSTS=backend,localhost,grc.optec.wales,services-grc.netbird.selfhosted
+      - CISO_ASSISTANT_URL=https://grc.optec.wales
       - DJANGO_DEBUG=False
       - AUTH_TOKEN_TTL=7200
       - HOME=/tmp
@@ -73,7 +73,7 @@ services:
     container_name: frontend
     environment:
       - PUBLIC_BACKEND_API_URL=http://backend:8000/api
-      - PUBLIC_BACKEND_API_EXPOSED_URL=https://services-grc.netbird.selfhosted/api
+      - PUBLIC_BACKEND_API_EXPOSED_URL=https://grc.optec.wales/api
       - PROTOCOL_HEADER=x-forwarded-proto
       - HOST_HEADER=x-forwarded-host
       - HOME=/tmp
@@ -110,7 +110,7 @@ services:
     container_name: caddy
     image: caddy:2.11.4
     environment:
-      - CISO_ASSISTANT_URL=https://services-grc.netbird.selfhosted
+      - CISO_ASSISTANT_URL=https://grc.optec.wales
     depends_on:
       backend:
         condition: service_healthy
@@ -119,7 +119,7 @@ services:
     volumes:
       - ./db/caddy:/data/caddy
     command: |
-      sh -c 'echo $$CISO_ASSISTANT_URL "{
+      sh -c 'echo "$$CISO_ASSISTANT_URL, https://services-grc.netbird.selfhosted" "{
       bind 100.75.81.223
       reverse_proxy /api/* 127.0.0.1:8000
       reverse_proxy /* 127.0.0.1:3000
