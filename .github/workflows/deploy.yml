@@ -9,10 +9,11 @@ jobs:
   deploy:
     runs-on: [self-hosted, services-grc]
     steps:
-      - name: Pull latest config and images, redeploy
+      - name: Pull latest code, build and redeploy
         run: |
           cd /home/optecgrc/ciso-assistant-community
           git fetch origin main
           git reset --hard origin/main
-          docker compose pull
+          docker compose build backend frontend
           docker compose up -d
+          docker compose exec -T backend python manage.py migrate --noinput
