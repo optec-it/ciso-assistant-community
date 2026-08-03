@@ -117,10 +117,7 @@
 	{:else}
 		<link rel="icon" href="/favicon.webp" />
 	{/if}
-	{@const pc = $page.data?.branding?.primary_color ?? '#006aff'}
-	{@const ac = $page.data?.branding?.accent_color ?? '#ff8a5b'}
-	{@const nc = $page.data?.branding?.nav_color ?? '#006aff'}
-	{@html `<style>[data-theme='cisotheme']{--color-primary-400:${pc};--color-primary-500:${pc};--color-primary-600:${pc};--color-secondary-400:${ac};--color-secondary-500:${ac};--color-secondary-600:${ac};--nav-color:${nc};}</style>`}
+	{@html `<style>[data-theme='cisotheme']{--color-primary-400:${$page.data?.branding?.primary_color ?? '#006aff'};--color-primary-500:${$page.data?.branding?.primary_color ?? '#006aff'};--color-primary-600:${$page.data?.branding?.primary_color ?? '#006aff'};--color-secondary-400:${$page.data?.branding?.accent_color ?? '#ff8a5b'};--color-secondary-500:${$page.data?.branding?.accent_color ?? '#ff8a5b'};--color-secondary-600:${$page.data?.branding?.accent_color ?? '#ff8a5b'};--nav-color:${$page.data?.branding?.nav_color ?? '#006aff'};}</style>`}
 </svelte:head>
 <Dialog components={modalRegistry} />
 <Toast zIndex="z-[1000]" />
