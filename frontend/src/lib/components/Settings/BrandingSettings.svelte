@@ -6,9 +6,11 @@
 
 	let appName = $state(data.brandingSettings?.app_name ?? 'Optec GRC');
 	let logoData = $state(data.brandingSettings?.logo_data ?? null);
+	let logoDarkData = $state(data.brandingSettings?.logo_dark_data ?? null);
 	let faviconData = $state(data.brandingSettings?.favicon_data ?? null);
 	let primaryColor = $state(data.brandingSettings?.primary_color ?? '#006aff');
 	let accentColor = $state(data.brandingSettings?.accent_color ?? '#ff8a5b');
+	let navColor = $state(data.brandingSettings?.nav_color ?? '#006aff');
 
 	const MAX_LOGO_KB = 500;
 	const MAX_FAVICON_KB = 100;
@@ -62,7 +64,7 @@
 			<div>
 				<label class="label" for="logo_upload">
 					<span class="font-semibold">{m.uploadLogo()}</span>
-					<span class="text-sm text-surface-500"> (max {MAX_LOGO_KB} KB, PNG/JPEG/WebP)</span>
+					<span class="text-sm text-surface-500"> ({m.lightMode()}, max {MAX_LOGO_KB} KB)</span>
 				</label>
 				<input
 					class="input px-3 py-2"
@@ -79,13 +81,42 @@
 							class="btn btn-sm preset-outlined-error-500"
 							onclick={() => (logoData = null)}
 						>
-							<i class="fa-solid fa-trash"></i> Remove
+							<i class="fa-solid fa-trash"></i> {m.remove()}
 						</button>
 					</div>
 				{/if}
 				<input type="hidden" name="logo_data" value={logoData ?? ''} />
 			</div>
 
+			<div>
+				<label class="label" for="logo_dark_upload">
+					<span class="font-semibold">{m.uploadLogo()}</span>
+					<span class="text-sm text-surface-500"> ({m.darkMode()}, max {MAX_LOGO_KB} KB)</span>
+				</label>
+				<input
+					class="input px-3 py-2"
+					type="file"
+					id="logo_dark_upload"
+					accept="image/png,image/jpeg,image/webp"
+					onchange={(e) => handleFileUpload(e, MAX_LOGO_KB, (v) => (logoDarkData = v))}
+				/>
+				{#if logoDarkData}
+					<div class="mt-3 flex items-center gap-3">
+						<img src={logoDarkData} alt="Dark mode logo preview" class="h-16 rounded bg-surface-900 p-2" />
+						<button
+							type="button"
+							class="btn btn-sm preset-outlined-error-500"
+							onclick={() => (logoDarkData = null)}
+						>
+							<i class="fa-solid fa-trash"></i> {m.remove()}
+						</button>
+					</div>
+				{/if}
+				<input type="hidden" name="logo_dark_data" value={logoDarkData ?? ''} />
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div>
 				<label class="label" for="favicon_upload">
 					<span class="font-semibold">{m.uploadFavicon()}</span>
@@ -106,7 +137,7 @@
 							class="btn btn-sm preset-outlined-error-500"
 							onclick={() => (faviconData = null)}
 						>
-							<i class="fa-solid fa-trash"></i> Remove
+							<i class="fa-solid fa-trash"></i> {m.remove()}
 						</button>
 					</div>
 				{/if}
@@ -114,10 +145,10 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			<div>
 				<label class="label" for="primary_color">
-					<span class="font-semibold">{m.primaryColor()}</span>
+					<span class="font-semibold">{m.primaryColour()}</span>
 				</label>
 				<div class="flex items-center gap-3">
 					<input
@@ -137,7 +168,7 @@
 
 			<div>
 				<label class="label" for="accent_color">
-					<span class="font-semibold">{m.accentColor()}</span>
+					<span class="font-semibold">{m.accentColour()}</span>
 				</label>
 				<div class="flex items-center gap-3">
 					<input
@@ -151,6 +182,26 @@
 						type="text"
 						name="accent_color"
 						bind:value={accentColor}
+					/>
+				</div>
+			</div>
+
+			<div>
+				<label class="label" for="nav_color">
+					<span class="font-semibold">{m.navColour()}</span>
+				</label>
+				<div class="flex items-center gap-3">
+					<input
+						type="color"
+						id="nav_color"
+						bind:value={navColor}
+						class="h-10 w-14 cursor-pointer rounded"
+					/>
+					<input
+						class="input px-3 py-2 w-32"
+						type="text"
+						name="nav_color"
+						bind:value={navColor}
 					/>
 				</div>
 			</div>

@@ -150,3 +150,16 @@ ul.options.portaled-options > li:not(.active):hover {
 .hide-scrollbar::-webkit-scrollbar {
 	display: none;
 }
+
+.sidebar-nav-text {
+	color: var(--nav-color, var(--color-primary-800));
+}
+.dark .sidebar-nav-text {
+	color: var(--nav-color, var(--color-primary-200));
+}
+.sidebar-active {
+	color: var(--nav-color, var(--color-primary-800));
+}
+.dark .sidebar-active {
+	color: var(--nav-color, var(--color-primary-200));
+}

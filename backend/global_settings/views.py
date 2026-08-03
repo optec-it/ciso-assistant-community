@@ -529,7 +529,9 @@ def get_branding_info(request):
     return Response({
         "app_name": value.get("app_name") or "Optec GRC",
         "logo_data": value.get("logo_data"),
+        "logo_dark_data": value.get("logo_dark_data"),
         "favicon_data": value.get("favicon_data"),
         "primary_color": value.get("primary_color") or "#006aff",
         "accent_color": value.get("accent_color") or "#ff8a5b",
+        "nav_color": value.get("nav_color") or "#006aff",
     })

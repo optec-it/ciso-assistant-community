@@ -770,6 +770,10 @@ class BrandingSerializer(serializers.ModelSerializer):
         source="value.logo_data", required=False, allow_null=True,
         allow_blank=True, default=None,
     )
+    logo_dark_data = serializers.CharField(
+        source="value.logo_dark_data", required=False, allow_null=True,
+        allow_blank=True, default=None,
+    )
     favicon_data = serializers.CharField(
         source="value.favicon_data", required=False, allow_null=True,
         allow_blank=True, default=None,
@@ -779,6 +783,9 @@ class BrandingSerializer(serializers.ModelSerializer):
     )
     accent_color = serializers.CharField(
         source="value.accent_color", required=False, default="#ff8a5b",
+    )
+    nav_color = serializers.CharField(
+        source="value.nav_color", required=False, default="#006aff",
     )
 
     class Meta:
@@ -799,8 +806,16 @@ class BrandingSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Must be a hex color like #ff8a5b.")
         return value
 
+    def validate_nav_color(self, value):
+        if not HEX_COLOR_RE.fullmatch(value):
+            raise serializers.ValidationError("Must be a hex colour like #006aff.")
+        return value
+
     def validate_logo_data(self, value):
         return _validate_image_data(value, MAX_LOGO_BYTES, ALLOWED_IMAGE_MIMES, "Logo")
+
+    def validate_logo_dark_data(self, value):
+        return _validate_image_data(value, MAX_LOGO_BYTES, ALLOWED_IMAGE_MIMES, "Dark mode logo")
 
     def validate_favicon_data(self, value):
         return _validate_image_data(

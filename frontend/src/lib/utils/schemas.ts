@@ -650,6 +650,7 @@ export const VulnerabilitySlaSchema = z.object({
 export const BrandingSchema = z.object({
 	app_name: z.string().max(100).default('Optec GRC').optional(),
 	logo_data: z.string().nullable().optional(),
+	logo_dark_data: z.string().nullable().optional(),
 	favicon_data: z.string().nullable().optional(),
 	primary_color: z
 		.string()
@@ -660,6 +661,11 @@ export const BrandingSchema = z.object({
 		.string()
 		.regex(/^#[0-9a-fA-F]{6}$/)
 		.default('#ff8a5b')
+		.optional(),
+	nav_color: z
+		.string()
+		.regex(/^#[0-9a-fA-F]{6}$/)
+		.default('#006aff')
 		.optional()
 });
 
