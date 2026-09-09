@@ -1,0 +1,968 @@
+urn: urn:intuitem:risk:library:iso9001-2015
+locale: en
+ref_id: iso9001-2015
+name: "ISO 9001:2015 — Quality management systems — Requirements outline"
+description: "Outline of ISO 9001:2015 — Quality management systems — Requirements.\n\
+  You can purchase the standard for full details."
+copyright: ISO - You can purchase the standard for full details.
+version: 1
+provider: ISO
+packager: intuitem
+objects:
+  framework:
+    urn: urn:intuitem:risk:framework:iso9001-2015
+    ref_id: iso9001-2015
+    name: "ISO 9001:2015 — Quality management systems — Requirements outline"
+    description: "Outline of ISO 9001:2015 — Quality management systems —\
+      \ Requirements.\nYou can purchase the standard for full details."
+    min_score: 0
+    max_score: 5
+    scores_definition:
+    - score: 0
+      name: Incomplete
+      description: Ad hoc and unknown
+    - score: 1
+      name: Initial
+      description: Unpredictable and reactive
+    - score: 2
+      name: Managed
+      description: Managed on the project level
+    - score: 3
+      name: Defined
+      description: Proactive, rather than reactive
+    - score: 4
+      name: Quantitatively managed
+      description: Measured and controlled
+    - score: 5
+      name: Optimising
+      description: Stable and flexible
+    requirement_nodes:
+    # =====================================================================
+    # Clause 4 - Context of the organisation
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4
+      assessable: false
+      depth: 1
+      ref_id: '4'
+      name: Context of the organisation
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.1
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4
+      ref_id: '4.1'
+      name: Understanding the organisation and its context
+      description: Determine external and internal issues relevant to the organisation's
+        purpose and strategic direction that affect QMS outcomes. Monitor and review
+        this information.
+      annotation: Use tools such as PESTLE or SWOT analysis. Document internal and
+        external factors and review them at management review meetings.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.2
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4
+      ref_id: '4.2'
+      name: Understanding the needs and expectations of interested parties
+      description: Determine interested parties relevant to the QMS and their requirements.
+        Monitor and review this information.
+      annotation: Maintain a stakeholder register listing customers, regulators, employees,
+        suppliers and their key requirements. Review annually.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.3
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4
+      ref_id: '4.3'
+      name: Determining the scope of the quality management system
+      description: Determine the boundaries and applicability of the QMS considering
+        internal/external issues, interested party requirements, and products/services.
+        Maintain the scope as documented information with justification for any non-applicable
+        requirements.
+      annotation: Document the QMS scope statement including sites, products, services
+        covered and any justified exclusions. Make it available to interested parties.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.4
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4
+      ref_id: '4.4'
+      name: Quality management system and its processes
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.4.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4.4
+      ref_id: '4.4.1'
+      name: QMS processes
+      description: Establish, implement, maintain and continually improve the QMS including
+        needed processes and their interactions. Determine inputs, outputs, sequence,
+        criteria, resources, responsibilities, risks and opportunities for each process.
+        Evaluate and improve processes.
+      annotation: Create a process map or turtle diagram for each key process showing
+        inputs, outputs, resources, KPIs, risks and process owners.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:4.4.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:4.4
+      ref_id: '4.4.2'
+      name: Documented information for processes
+      description: Maintain documented information to support process operation and
+        retain documented information to confirm processes are carried out as planned.
+      annotation: Ensure each process has appropriate procedures or work instructions
+        and that records of process performance are retained.
+    # =====================================================================
+    # Clause 5 - Leadership
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5
+      assessable: false
+      depth: 1
+      ref_id: '5'
+      name: Leadership
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.1
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5
+      ref_id: '5.1'
+      name: Leadership and commitment
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.1.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5.1
+      ref_id: '5.1.1'
+      name: General
+      description: Top management shall demonstrate leadership and commitment by taking
+        accountability for QMS effectiveness, establishing policy and objectives, integrating
+        QMS into business processes, promoting process approach and risk-based thinking,
+        ensuring resources, communicating importance, achieving intended results, engaging
+        people, and promoting improvement.
+      annotation: Include QMS performance as a standing agenda item in board/executive
+        meetings. Assign clear ownership of the QMS to a senior leader.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.1.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5.1
+      ref_id: '5.1.2'
+      name: Customer focus
+      description: Top management shall ensure customer and applicable statutory/regulatory
+        requirements are determined, understood and met; risks and opportunities affecting
+        product/service conformity and customer satisfaction are addressed; and customer
+        focus is maintained.
+      annotation: Track customer satisfaction metrics and review customer complaint
+        trends. Ensure regulatory requirements are identified for each product/service
+        line.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.2
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5
+      ref_id: '5.2'
+      name: Policy
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.2.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5.2
+      ref_id: '5.2.1'
+      name: Establishing the quality policy
+      description: Establish, implement and maintain a quality policy appropriate to
+        the organisation's purpose and context, providing a framework for quality objectives,
+        committing to satisfy applicable requirements, and committing to continual improvement.
+      annotation: Draft a concise quality policy signed by top management. Review it
+        annually for continued suitability. Ensure it aligns with strategic direction.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.2.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5.2
+      ref_id: '5.2.2'
+      name: Communicating the quality policy
+      description: The quality policy shall be available as documented information,
+        communicated, understood and applied within the organisation, and available
+        to relevant interested parties as appropriate.
+      annotation: Display the quality policy in workplaces and on the company intranet.
+        Include it in induction training. Make it accessible on the company website.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:5.3
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:5
+      ref_id: '5.3'
+      name: Organisational roles, responsibilities and authorities
+      description: Top management shall assign, communicate and ensure understanding
+        of responsibilities and authorities for ensuring QMS conformity, process outputs,
+        QMS performance reporting, customer focus promotion, and QMS integrity during
+        changes.
+      annotation: Maintain an organisation chart and RACI matrix for QMS roles. Ensure
+        job descriptions reflect quality responsibilities.
+    # =====================================================================
+    # Clause 6 - Planning
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6
+      assessable: false
+      depth: 1
+      ref_id: '6'
+      name: Planning
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.1
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6
+      ref_id: '6.1'
+      name: Actions to address risks and opportunities
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.1.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6.1
+      ref_id: '6.1.1'
+      name: Determine risks and opportunities
+      description: Consider the issues from 4.1 and requirements from 4.2 to determine
+        risks and opportunities that need to be addressed to give assurance the QMS
+        achieves intended results, enhance desirable effects, prevent or reduce undesired
+        effects, and achieve improvement.
+      annotation: Maintain a risk and opportunity register linked to context analysis.
+        Use a simple likelihood/impact matrix to prioritise actions.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.1.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6.1
+      ref_id: '6.1.2'
+      name: Plan actions for risks and opportunities
+      description: Plan actions to address risks and opportunities, how to integrate
+        and implement them into QMS processes, and how to evaluate their effectiveness.
+        Actions shall be proportionate to potential impact on conformity.
+      annotation: Assign owners and deadlines for each risk/opportunity action. Review
+        effectiveness at management review. Document the rationale for risk acceptance
+        decisions.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.2
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6
+      ref_id: '6.2'
+      name: Quality objectives and planning to achieve them
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.2.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6.2
+      ref_id: '6.2.1'
+      name: Establish quality objectives
+      description: Establish quality objectives at relevant functions, levels and processes.
+        Objectives shall be consistent with the quality policy, measurable, consider
+        applicable requirements, be relevant to conformity and customer satisfaction,
+        monitored, communicated, and updated as appropriate.
+      annotation: Use SMART criteria for objectives. Set objectives at organisational,
+        departmental and process levels. Maintain documented information on objectives.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.2.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6.2
+      ref_id: '6.2.2'
+      name: Plan to achieve quality objectives
+      description: Determine what will be done, what resources are required, who will
+        be responsible, when it will be completed, and how results will be evaluated.
+      annotation: Create action plans for each quality objective with milestones, responsible
+        persons, resource requirements and review dates.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:6.3
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:6
+      ref_id: '6.3'
+      name: Planning of changes
+      description: When changes to the QMS are needed, carry them out in a planned
+        manner considering the purpose and consequences of changes, QMS integrity,
+        resource availability, and allocation of responsibilities.
+      annotation: Use a change management process or management of change form. Assess
+        impact on QMS before implementing changes.
+    # =====================================================================
+    # Clause 7 - Support
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      assessable: false
+      depth: 1
+      ref_id: '7'
+      name: Support
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      ref_id: '7.1'
+      name: Resources
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.1'
+      name: General
+      description: Determine and provide resources needed for QMS establishment, implementation,
+        maintenance and continual improvement, considering capabilities and constraints
+        of existing internal resources and what needs to be obtained externally.
+      annotation: Conduct resource reviews as part of business planning. Document resource
+        needs and gaps. Include resource adequacy in management review inputs.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.2'
+      name: People
+      description: Determine and provide persons necessary for effective QMS implementation
+        and process operation and control.
+      annotation: Maintain staffing plans aligned to process needs. Consider workload
+        analysis and succession planning for key QMS roles.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.3'
+      name: Infrastructure
+      description: Determine, provide and maintain infrastructure necessary for process
+        operation and to achieve product and service conformity, including buildings,
+        equipment, transportation, and IT.
+      annotation: Maintain an asset register and preventive maintenance programme. Include
+        infrastructure adequacy in management review.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.4
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.4'
+      name: Environment for the operation of processes
+      description: Determine, provide and maintain the environment necessary for process
+        operation and product/service conformity, including social, psychological and
+        physical factors.
+      annotation: Assess workplace conditions including temperature, lighting, noise,
+        cleanliness and psychosocial factors. Document environmental requirements for
+        critical processes.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.5
+      assessable: false
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.5'
+      name: Monitoring and measuring resources
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.5.1
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.5
+      ref_id: '7.1.5.1'
+      name: General
+      description: Determine and provide resources needed for valid and reliable monitoring
+        and measurement results. Ensure resources are suitable and maintained. Retain
+        documented information as evidence of fitness for purpose.
+      annotation: Maintain a register of monitoring and measuring equipment. Define
+        calibration/verification schedules and acceptance criteria.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.5.2
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.5
+      ref_id: '7.1.5.2'
+      name: Measurement traceability
+      description: When measurement traceability is required, measuring equipment shall
+        be calibrated or verified against traceable standards, identified, and safeguarded.
+        Determine impact when equipment is found unfit.
+      annotation: Maintain calibration certificates traceable to national/international
+        standards. Label equipment with calibration status and due dates. Define a process
+        for handling out-of-tolerance findings.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.1.6
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.1
+      ref_id: '7.1.6'
+      name: Organisational knowledge
+      description: Determine knowledge necessary for process operation and product/service
+        conformity. Maintain and make available this knowledge. Address changing needs
+        and determine how to acquire additional knowledge.
+      annotation: Identify critical knowledge areas and knowledge holders. Use lessons-learned
+        databases, mentoring programmes or knowledge-sharing sessions. Plan for knowledge
+        retention when staff leave.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.2
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      ref_id: '7.2'
+      name: Competence
+      description: Determine necessary competence of persons affecting QMS performance.
+        Ensure competence based on education, training or experience. Take actions to
+        acquire competence and evaluate their effectiveness. Retain evidence of competence.
+      annotation: Maintain a competency matrix mapping roles to required skills. Keep
+        training records and certificates. Evaluate training effectiveness through assessments
+        or on-the-job observation.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.3
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      ref_id: '7.3'
+      name: Awareness
+      description: Ensure persons doing work under the organisation's control are aware
+        of the quality policy, relevant quality objectives, their contribution to QMS
+        effectiveness, and implications of not conforming to QMS requirements.
+      annotation: Include quality awareness in induction and refresher training. Use
+        team briefings, notice boards or digital signage to reinforce key messages.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.4
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      ref_id: '7.4'
+      name: Communication
+      description: Determine internal and external communications relevant to the QMS
+        including what, when, with whom, how, and who communicates.
+      annotation: Create a communications matrix defining communication channels, frequency
+        and responsibilities for key QMS topics (e.g. policy changes, audit results,
+        performance data).
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7
+      ref_id: '7.5'
+      name: Documented information
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.5
+      ref_id: '7.5.1'
+      name: General
+      description: The QMS shall include documented information required by the standard
+        and documented information determined by the organisation as necessary for QMS
+        effectiveness.
+      annotation: Maintain a document register or master list. Determine the appropriate
+        extent of documentation based on organisation size, complexity and staff competence.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.5
+      ref_id: '7.5.2'
+      name: Creating and updating
+      description: Ensure appropriate identification, description, format, media, and
+        review and approval for suitability and adequacy when creating and updating
+        documented information.
+      annotation: Define document templates with standard headers (title, date, author,
+        version). Establish an approval workflow before documents are issued.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.3
+      assessable: false
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.5
+      ref_id: '7.5.3'
+      name: Control of documented information
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.3.1
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.3
+      ref_id: '7.5.3.1'
+      name: Availability and protection
+      description: Documented information shall be controlled to ensure it is available
+        and suitable for use where and when needed, and adequately protected from loss
+        of confidentiality, improper use or loss of integrity.
+      annotation: Use a document management system with access controls. Ensure current
+        versions are accessible at points of use. Back up electronic records.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.3.2
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:7.5.3
+      ref_id: '7.5.3.2'
+      name: Document control activities
+      description: Address distribution, access, retrieval, use, storage, preservation,
+        change control, retention and disposition. Control external-origin documents.
+        Protect records from unintended alteration.
+      annotation: Define retention periods for quality records. Implement version control
+        for procedures. Identify and control externally sourced documents (e.g. standards,
+        customer specifications).
+    # =====================================================================
+    # Clause 8 - Operation
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      assessable: false
+      depth: 1
+      ref_id: '8'
+      name: Operation
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.1
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.1'
+      name: Operational planning and control
+      description: Plan, implement and control processes needed for product/service
+        provision. Determine requirements, establish process and acceptance criteria,
+        determine resources, implement controls, and maintain/retain documented information.
+        Control planned changes and review unintended changes. Control outsourced processes.
+      annotation: Use quality plans for complex projects. Define acceptance criteria
+        before production. Ensure outsourced processes are identified and controlled
+        per clause 8.4.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.2'
+      name: Requirements for products and services
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2
+      ref_id: '8.2.1'
+      name: Customer communication
+      description: Communication with customers shall include providing product/service
+        information, handling enquiries/contracts/orders including changes, obtaining
+        feedback including complaints, handling customer property, and establishing
+        contingency action requirements.
+      annotation: Define customer communication channels and responsibilities. Maintain
+        a complaints log. Establish procedures for contract review and order amendments.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2
+      ref_id: '8.2.2'
+      name: Determining the requirements for products and services
+      description: Ensure product/service requirements are defined including applicable
+        statutory and regulatory requirements and those considered necessary by the
+        organisation. Ensure the organisation can meet its claims.
+      annotation: Maintain a requirements checklist for each product/service type covering
+        customer, regulatory and internal requirements. Verify claims made in marketing
+        materials.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.3
+      assessable: false
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2
+      ref_id: '8.2.3'
+      name: Review of the requirements for products and services
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.3.1
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.3
+      ref_id: '8.2.3.1'
+      name: Contract and order review
+      description: Ensure capability to meet requirements before committing to supply.
+        Review customer requirements including delivery and post-delivery, unstated
+        requirements, organisation requirements, statutory/regulatory requirements,
+        and contract/order differences. Resolve differing requirements. Confirm customer
+        requirements before acceptance.
+      annotation: Implement a contract review checklist. Ensure technical and commercial
+        review before tender submission. Document any deviations agreed with the customer.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.3.2
+      assessable: true
+      depth: 4
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.3
+      ref_id: '8.2.3.2'
+      name: Records of review
+      description: Retain documented information on results of the review and on any
+        new requirements for products and services.
+      annotation: Keep signed contract review records. Ensure new or changed requirements
+        are communicated to relevant functions.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.2.4
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.2
+      ref_id: '8.2.4'
+      name: Changes to requirements for products and services
+      description: Ensure relevant documented information is amended and relevant persons
+        are made aware when requirements for products and services are changed.
+      annotation: Use a change notification process. Update affected documents, specifications
+        and work instructions. Communicate changes to production and customer-facing
+        staff.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.3'
+      name: Design and development of products and services
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.1'
+      name: General
+      description: Establish, implement and maintain a design and development process
+        appropriate to ensure subsequent provision of products and services.
+      annotation: Define a design and development procedure covering stages, gates,
+        roles and deliverables. Determine applicability based on the organisation's
+        products and services.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.2'
+      name: Design and development planning
+      description: Consider the nature, duration and complexity of activities, required
+        stages and reviews, verification and validation activities, responsibilities,
+        resource needs, interfaces, customer/user involvement, subsequent provision
+        requirements, stakeholder control expectations, and documentation needed.
+      annotation: Create a design plan for each project defining stages, milestones,
+        review points, resource allocation and responsible persons.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.3'
+      name: Design and development inputs
+      description: Determine requirements essential for the specific types of products
+        and services including functional and performance requirements, prior design
+        information, statutory/regulatory requirements, standards, and potential consequences
+        of failure. Inputs shall be adequate, complete and unambiguous. Resolve conflicts.
+      annotation: Compile a design input specification document. Include failure mode
+        analysis where safety is relevant. Retain documented information on inputs.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.4
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.4'
+      name: Design and development controls
+      description: Apply controls to ensure results are defined, reviews evaluate ability
+        to meet requirements, verification ensures outputs meet inputs, validation
+        ensures products/services meet intended use, problems are actioned, and documented
+        information is retained.
+      annotation: Conduct formal design reviews at key stages. Perform verification
+        (e.g. calculations, simulations) and validation (e.g. prototype testing, trials).
+        Record outcomes and actions.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.5
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.5'
+      name: Design and development outputs
+      description: Ensure outputs meet input requirements, are adequate for subsequent
+        processes, include monitoring/measuring requirements and acceptance criteria,
+        and specify essential product/service characteristics. Retain documented information.
+      annotation: Issue formal design output documents (drawings, specifications, BoMs).
+        Ensure outputs reference acceptance criteria and safety-critical characteristics.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.3.6
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.3
+      ref_id: '8.3.6'
+      name: Design and development changes
+      description: Identify, review and control changes to prevent adverse impact on
+        conformity. Retain documented information on changes, review results, authorisation,
+        and actions to prevent adverse impacts.
+      annotation: Use a design change request process with impact assessment and formal
+        approval. Update affected documents and notify production.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.4
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.4'
+      name: Control of externally provided processes, products and services
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.4.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.4
+      ref_id: '8.4.1'
+      name: General
+      description: Ensure externally provided processes, products and services conform
+        to requirements. Determine controls for incorporation, direct delivery, and
+        outsourced processes. Determine criteria for evaluation, selection, performance
+        monitoring, and re-evaluation of external providers. Retain documented information.
+      annotation: Maintain an approved supplier list. Define evaluation criteria (quality,
+        delivery, cost). Conduct periodic supplier assessments. Keep records of evaluations
+        and any corrective actions.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.4.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.4
+      ref_id: '8.4.2'
+      name: Type and extent of control
+      description: Ensure externally provided processes, products and services do not
+        adversely affect ability to deliver conforming products/services. Ensure externally
+        provided processes remain within QMS control, define controls for providers
+        and outputs, and consider potential impact and effectiveness of provider controls.
+      annotation: Apply risk-based controls proportionate to the criticality of the
+        externally provided item. Define inspection, testing or audit requirements for
+        critical suppliers.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.4.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.4
+      ref_id: '8.4.3'
+      name: Information for external providers
+      description: Ensure adequacy of requirements before communicating to providers.
+        Communicate requirements for processes, products, services, approval, competence,
+        interactions, control, monitoring, and verification/validation activities.
+      annotation: Use clear purchase orders or supplier agreements specifying quality
+        requirements. Include right-of-access clauses for audits. Define expected competency
+        requirements for service providers.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.5'
+      name: Production and service provision
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.1'
+      name: Control of production and service provision
+      description: Implement production and service provision under controlled conditions
+        including documented information, monitoring resources, monitoring activities,
+        suitable infrastructure and environment, competent persons, process validation,
+        human error prevention, and release/delivery/post-delivery activities.
+      annotation: Define work instructions or standard operating procedures for key
+        processes. Validate special processes where output cannot be verified by inspection.
+        Implement error-proofing (poka-yoke) where practical.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.2'
+      name: Identification and traceability
+      description: Use suitable means to identify outputs for conformity. Identify output
+        status with respect to monitoring and measurement. Control unique identification
+        when traceability is required and retain documented information.
+      annotation: Use labelling, batch numbers, serial numbers or job references. Define
+        the extent of traceability required based on regulatory, contractual or risk
+        considerations.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.3'
+      name: Property belonging to customers or external providers
+      description: Exercise care with customer or external provider property while under
+        the organisation's control. Identify, verify, protect and safeguard it. Report
+        and record any loss, damage or unsuitability.
+      annotation: Maintain a register of customer/supplier property. Implement appropriate
+        storage and handling. Notify owners promptly of any loss or damage.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.4
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.4'
+      name: Preservation
+      description: Preserve outputs during production and service provision to the extent
+        necessary to ensure conformity, including identification, handling, contamination
+        control, packaging, storage, transmission or transportation, and protection.
+      annotation: Define preservation requirements for each product type. Implement
+        appropriate packaging, storage conditions and shelf-life controls.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.5
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.5'
+      name: Post-delivery activities
+      description: Meet requirements for post-delivery activities considering statutory/regulatory
+        requirements, potential undesired consequences, nature/use/intended lifetime,
+        customer requirements, and customer feedback.
+      annotation: Define post-delivery obligations (warranty, maintenance, support).
+        Monitor field performance and customer feedback after delivery.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.5.6
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.5
+      ref_id: '8.5.6'
+      name: Control of changes
+      description: Review and control changes for production or service provision to
+        ensure continuing conformity. Retain documented information on review results,
+        authorising persons, and necessary actions.
+      annotation: Use a production change control process. Assess impact on product
+        conformity before implementing. Re-validate processes where necessary.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.6
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.6'
+      name: Release of products and services
+      description: Implement planned arrangements at appropriate stages to verify product/service
+        requirements have been met. Do not release until planned arrangements are satisfactorily
+        completed unless approved by a relevant authority. Retain documented information
+        on conformity evidence and release authorisation.
+      annotation: Define inspection and test plans with hold/witness points. Retain
+        certificates of conformity or test reports. Ensure traceability to the person
+        authorising release.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.7
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8
+      ref_id: '8.7'
+      name: Control of nonconforming outputs
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.7.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.7
+      ref_id: '8.7.1'
+      name: Nonconforming output actions
+      description: Ensure nonconforming outputs are identified and controlled to prevent
+        unintended use or delivery. Take appropriate action including correction, segregation,
+        containment, return, suspension, informing customer, or obtaining concession.
+        Verify conformity when corrected.
+      annotation: Implement a nonconformance process with quarantine areas or tagging.
+        Define authority for disposition decisions (rework, scrap, concession). Re-inspect
+        after rework.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:8.7.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:8.7
+      ref_id: '8.7.2'
+      name: Nonconforming output records
+      description: Retain documented information describing the nonconformity, actions
+        taken, concessions obtained, and the authority deciding the action.
+      annotation: Use a nonconformance report form capturing description, root cause,
+        disposition, authorisation and close-out verification.
+    # =====================================================================
+    # Clause 9 - Performance evaluation
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9
+      assessable: false
+      depth: 1
+      ref_id: '9'
+      name: Performance evaluation
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.1
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9
+      ref_id: '9.1'
+      name: Monitoring, measurement, analysis and evaluation
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.1.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.1
+      ref_id: '9.1.1'
+      name: General
+      description: Determine what needs to be monitored and measured, the methods needed
+        for valid results, when monitoring and measuring shall be performed, and when
+        results shall be analysed. Evaluate QMS performance and effectiveness. Retain
+        documented information as evidence.
+      annotation: Define KPIs for key processes and the QMS overall. Establish a measurement
+        and monitoring plan specifying metrics, frequency, methods and responsibilities.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.1.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.1
+      ref_id: '9.1.2'
+      name: Customer satisfaction
+      description: Monitor customers' perceptions of the degree to which their needs
+        and expectations have been fulfilled. Determine methods for obtaining, monitoring
+        and reviewing this information.
+      annotation: Use customer surveys, feedback forms, complaint analysis, Net Promoter
+        Score or similar. Track trends and act on results.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.1.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.1
+      ref_id: '9.1.3'
+      name: Analysis and evaluation
+      description: Analyse and evaluate data and information from monitoring and measurement
+        to evaluate product/service conformity, customer satisfaction, QMS performance,
+        planning effectiveness, risk/opportunity actions, external provider performance,
+        and improvement needs.
+      annotation: Use trend analysis, Pareto charts or statistical techniques. Present
+        analysis results at management review. Benchmark against industry standards
+        where practical.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.2
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9
+      ref_id: '9.2'
+      name: Internal audit
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.2.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.2
+      ref_id: '9.2.1'
+      name: Audit programme
+      description: Conduct internal audits at planned intervals to determine whether
+        the QMS conforms to the organisation's own requirements and the standard's
+        requirements, and is effectively implemented and maintained.
+      annotation: Develop a risk-based annual audit programme covering all QMS processes.
+        Use ISO 19011 as guidance for auditing practices.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.2.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.2
+      ref_id: '9.2.2'
+      name: Audit conduct and follow-up
+      description: Plan, establish, implement and maintain audit programme(s) including
+        frequency, methods, responsibilities, planning and reporting. Define audit criteria
+        and scope. Select objective and impartial auditors. Report results to management.
+        Take correction and corrective actions without undue delay. Retain documented
+        information.
+      annotation: Train internal auditors. Use audit checklists. Track findings to closure.
+        Ensure auditor independence (do not audit own work). Report audit summary at
+        management review.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.3
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9
+      ref_id: '9.3'
+      name: Management review
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.3.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.3
+      ref_id: '9.3.1'
+      name: General
+      description: Top management shall review the QMS at planned intervals to ensure
+        continuing suitability, adequacy, effectiveness and alignment with strategic
+        direction.
+      annotation: Conduct management reviews at least annually or more frequently where
+        changes warrant it. Use a structured agenda and retain minutes.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.3.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.3
+      ref_id: '9.3.2'
+      name: Management review inputs
+      description: Consider status of previous actions, changes in internal/external
+        issues, QMS performance trends (customer satisfaction, quality objectives, process
+        performance, nonconformities, audit results, external provider performance),
+        resource adequacy, risk/opportunity action effectiveness, and improvement opportunities.
+      annotation: Prepare a management review pack with data and trend analysis for
+        each input. Ensure all required inputs are covered.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:9.3.3
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:9.3
+      ref_id: '9.3.3'
+      name: Management review outputs
+      description: Outputs shall include decisions and actions related to improvement
+        opportunities, any need for QMS changes, and resource needs. Retain documented
+        information as evidence.
+      annotation: Record clear actions with owners and deadlines. Track management review
+        actions to completion. Feed outputs into the next planning cycle.
+    # =====================================================================
+    # Clause 10 - Improvement
+    # =====================================================================
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10
+      assessable: false
+      depth: 1
+      ref_id: '10'
+      name: Improvement
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10.1
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:10
+      ref_id: '10.1'
+      name: General
+      description: Determine and select opportunities for improvement and implement
+        actions to meet customer requirements and enhance satisfaction, including improving
+        products/services, correcting/preventing undesired effects, and improving QMS
+        performance and effectiveness.
+      annotation: Encourage a culture of continual improvement. Use suggestions schemes,
+        kaizen events or improvement projects. Prioritise improvements based on impact
+        and feasibility.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10.2
+      assessable: false
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:10
+      ref_id: '10.2'
+      name: Nonconformity and corrective action
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10.2.1
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:10.2
+      ref_id: '10.2.1'
+      name: Responding to nonconformities
+      description: When a nonconformity occurs, react to control and correct it and
+        deal with consequences. Evaluate the need for action to eliminate causes by
+        reviewing, determining causes, and determining if similar nonconformities exist
+        or could occur. Implement actions, review effectiveness, update risks and opportunities,
+        and make QMS changes if necessary. Corrective actions shall be proportionate.
+      annotation: Use root cause analysis techniques (5 Whys, fishbone diagram). Verify
+        corrective action effectiveness. Extend investigation to other areas where
+        similar nonconformities could occur.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10.2.2
+      assessable: true
+      depth: 3
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:10.2
+      ref_id: '10.2.2'
+      name: Corrective action records
+      description: Retain documented information as evidence of the nature of nonconformities
+        and subsequent actions taken, and the results of any corrective action.
+      annotation: Maintain a corrective action register or database. Track each CAR
+        from identification through root cause analysis, action implementation and
+        effectiveness verification.
+    - urn: urn:intuitem:risk:req_node:iso9001-2015:10.3
+      assessable: true
+      depth: 2
+      parent_urn: urn:intuitem:risk:req_node:iso9001-2015:10
+      ref_id: '10.3'
+      name: Continual improvement
+      description: Continually improve the suitability, adequacy and effectiveness of
+        the QMS. Consider results of analysis and evaluation, and outputs from management
+        review, to determine needs or opportunities for continual improvement.
+      annotation: Set improvement targets in quality objectives. Use management review
+        outputs and data analysis to identify improvement priorities. Consider benchmarking,
+        innovation and breakthrough changes alongside incremental improvements.
