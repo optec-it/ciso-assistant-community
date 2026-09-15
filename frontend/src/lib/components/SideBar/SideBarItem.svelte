@@ -12,8 +12,8 @@
 
 	let classesActive = $derived((href: string) =>
 		href === page.url.pathname
-			? 'sidebar-active bg-primary-100-900'
-			: 'hover:bg-primary-50-950 text-surface-950-50 '
+			? 'sidebar-active-item'
+			: 'text-surface-300 hover:bg-surface-800/60 hover:text-surface-100'
 	);
 </script>
 

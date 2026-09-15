@@ -41,7 +41,6 @@
 		const modal: ModalSettings = {
 			type: 'component',
 			component: modalComponent,
-			// Data
 			title: m.mfaAuthenticateTitle(),
 			body: m.enterCodeGeneratedByApp()
 		};
@@ -70,9 +69,6 @@
 		);
 	}
 
-	// `/login?sso` (optionally with `&next=`) skips the form and goes straight to
-	// the identity provider. Excluded users (keep_local_login) can still reach the
-	// form via plain `/login`.
 	const autoSSO = $derived(data.SSOInfo?.is_enabled && page.url.searchParams.has('sso'));
 
 	onMount(() => {
@@ -81,30 +77,18 @@
 </script>
 
 <div
-	class="flex flex-col w-7/8 lg:w-3/4 p-10 rounded-lg shadow-lg bg-surface-50-950 bg-opacity-[.90]"
+	class="flex flex-col w-full p-8 rounded-2xl shadow-2xl bg-surface-900 border border-surface-800"
 >
 	<div data-testid="login" class="flex flex-col w-full items-center space-y-4">
 		{#if autoSSO}
-			<div class="bg-primary-300 px-6 py-5 rounded-full text-3xl">
+			<div class="bg-secondary-500/20 text-secondary-400 px-6 py-5 rounded-full text-3xl">
 				<i class="fa-solid fa-circle-notch fa-spin"></i>
 			</div>
-			<p class="text-center text-surface-600-400 text-sm">{m.loginSSO()}…</p>
+			<p class="text-center text-surface-400 text-sm">{m.loginSSO()}…</p>
 		{:else}
-			<div class="bg-primary-300 px-6 py-5 rounded-full text-3xl">
-				<i class="fa-solid fa-right-to-bracket"></i>
-			</div>
-			<h3
-				class="font-bold leading-tight tracking-tight md:text-2xl bg-linear-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent"
-			>
-				{m.logIntoYourAccount()}
-			</h3>
-			<p class="text-center text-surface-600-400 text-sm">
-				{m.youNeedToLogIn()}
-			</p>
 			<div class="w-full">
-				<!-- SuperForm with dataType 'form' -->
 				<SuperForm
-					class="flex flex-col space-y-3"
+					class="flex flex-col space-y-4"
 					data={data?.form}
 					dataType="form"
 					validators={zod(loginSchema)}
@@ -113,18 +97,10 @@
 					{#snippet children({ form })}
 						<TextField type="email" {form} field="username" label={m.email()} />
 						<TextField type="password" {form} field="password" label={m.password()} />
-						<div class="flex flex-row justify-end">
-							<a
-								href="/password-reset"
-								class="flex items-center space-x-2 text-primary-800-200 hover:text-primary-600-400"
-								data-testid="forgot-password-btn"
-							>
-								<p class="">{m.forgtPassword()}?</p>
-							</a>
-						</div>
 						<p class="">
 							<button
-								class="btn preset-filled-primary-500 font-semibold w-full"
+								class="btn w-full font-semibold text-surface-950 rounded-lg py-3"
+								style="background-color: var(--color-secondary-500);"
 								data-testid="login-btn"
 								type="submit">{m.login()}</button
 							>
@@ -133,16 +109,22 @@
 				</SuperForm>
 			</div>
 			{#if data.SSOInfo.is_enabled}
-				<div class="flex items-center justify-center w-full space-x-2">
-					<hr class="w-64 items-center bg-surface-200-800 border-0" />
-					<span class="flex items-center text-surface-600-400 text-sm">{m.or()}</span>
-					<hr class="w-64 items-center bg-surface-200-800 border-0" />
+				<div class="flex items-center justify-center w-full space-x-3 py-1">
+					<hr class="flex-1 border-surface-700" />
+					<span class="text-surface-500 text-sm">{m.or()}</span>
+					<hr class="flex-1 border-surface-700" />
 				</div>
 				<button
-					class="btn bg-linear-to-l from-violet-800 to-violet-400 text-white font-semibold w-1/2"
-					onclick={triggerSSO}>{m.loginSSO()}</button
+					class="btn bg-surface-800 hover:bg-surface-700 text-surface-200 font-semibold w-full border border-surface-700 rounded-lg py-3"
+					onclick={triggerSSO}
 				>
+					<i class="fa-brands fa-microsoft mr-2"></i>
+					{m.loginSSO()}
+				</button>
 			{/if}
+			<p class="text-xs text-surface-500 text-center pt-2">
+				Local accounts skip multi-factor authentication. Sign-ins are recorded in the audit log.
+			</p>
 		{/if}
 	</div>
 </div>

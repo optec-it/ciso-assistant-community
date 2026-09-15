@@ -37,7 +37,7 @@
 	@apply text-primary-contrast-500 bg-primary-500 hover:brightness-125 dark:hover:brightness-75;
 }
 @utility btn-mini-secondary {
-	@apply text-gray-50 bg-pink-500 hover:bg-pink-400 dark:bg-pink-600 dark:hover:bg-pink-500;
+	@apply text-gray-50 bg-secondary-500 hover:bg-secondary-400 dark:bg-secondary-600 dark:hover:bg-secondary-500;
 }
 @utility btn-mini-tertiary {
 	@apply text-gray-50 bg-sky-500 hover:bg-sky-400 dark:bg-sky-600 dark:hover:bg-sky-500;
@@ -152,14 +152,16 @@ ul.options.portaled-options > li:not(.active):hover {
 }
 
 .sidebar-nav-text {
-	color: var(--nav-color, var(--color-primary-800));
-}
-.dark .sidebar-nav-text {
-	color: var(--nav-color, var(--color-primary-200));
+	color: var(--color-surface-500);
 }
 .sidebar-active {
-	color: var(--nav-color, var(--color-primary-800));
+	color: var(--color-secondary-400);
 }
-.dark .sidebar-active {
-	color: var(--nav-color, var(--color-primary-200));
+.sidebar-active-item {
+	color: var(--color-surface-50);
+	background-color: var(--color-secondary-500);
+	border-radius: 0.5rem;
+}
+.sidebar-active-item:hover {
+	background-color: var(--color-secondary-600);
 }

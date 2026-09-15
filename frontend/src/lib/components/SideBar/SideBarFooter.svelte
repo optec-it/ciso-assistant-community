@@ -50,19 +50,19 @@
 	});
 </script>
 
-<div class="border-t pt-2.5">
+<div class="border-t border-surface-800 pt-2.5">
 	<div class="flex flex-row items-center justify-between">
 		<div class="flex flex-col w-3/4">
 			{#if page.data.user}
 				<span
-					class="text-surface-950-50 text-sm whitespace-nowrap overflow-hidden truncate w-full"
+					class="text-surface-200 text-sm whitespace-nowrap overflow-hidden truncate w-full"
 					data-testid="sidebar-user-name-display"
 				>
 					{page.data.user.first_name}
 					{page.data.user.last_name}
 				</span>
 				<span
-					class="font-normal text-xs whitespace-nowrap truncate text-surface-600-400 mr-2 w-full"
+					class="font-normal text-xs whitespace-nowrap truncate text-surface-500 mr-2 w-full"
 					data-testid="sidebar-user-email-display"
 				>
 					{page.data.user.email}
