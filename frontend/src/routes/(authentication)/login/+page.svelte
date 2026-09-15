@@ -18,8 +18,8 @@
 
 <main class="flex items-center justify-center min-h-screen bg-surface-950">
 	<div class="flex flex-col items-center w-full max-w-md px-4">
-		<div class="flex justify-center mb-8 max-w-48">
-			<Logo />
+		<div class="flex justify-center mb-8 max-w-64">
+			<Logo variant="dark" />
 		</div>
 		<h2 class="text-lg font-semibold mb-6">
 			<span class="text-surface-400">Sign in to </span>

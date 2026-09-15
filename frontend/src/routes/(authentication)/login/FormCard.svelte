@@ -77,7 +77,7 @@
 </script>
 
 <div
-	class="flex flex-col w-full p-8 rounded-2xl shadow-2xl bg-surface-900 border border-surface-800"
+	class="login-card flex flex-col w-full p-8 rounded-2xl shadow-2xl bg-surface-900/60 border border-surface-700/30"
 >
 	<div data-testid="login" class="flex flex-col w-full items-center space-y-4">
 		{#if autoSSO}
@@ -88,16 +88,16 @@
 		{:else}
 			<div class="w-full">
 				<SuperForm
-					class="flex flex-col space-y-4"
+					class="flex flex-col space-y-5"
 					data={data?.form}
 					dataType="form"
 					validators={zod(loginSchema)}
 					action="?/login&next={page.url.searchParams.get('next') || '/'}"
 				>
 					{#snippet children({ form })}
-						<TextField type="email" {form} field="username" label={m.email()} />
-						<TextField type="password" {form} field="password" label={m.password()} />
-						<p class="">
+						<TextField type="email" {form} field="username" label={m.email()} placeholder="Enter your email" />
+						<TextField type="password" {form} field="password" label={m.password()} placeholder="Enter your password" />
+						<p class="pt-1">
 							<button
 								class="btn w-full font-semibold text-surface-950 rounded-lg py-3"
 								style="background-color: var(--color-secondary-500);"
@@ -128,3 +128,24 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	:global(.login-card label) {
+		color: oklch(0.95 0.01 252);
+	}
+	:global(.login-card input.input) {
+		background-color: oklch(0.18 0.02 264);
+		border: 1px solid oklch(0.30 0.02 264);
+		color: oklch(0.95 0.01 252);
+		border-radius: 0.5rem;
+		padding: 0.75rem 1rem;
+	}
+	:global(.login-card input.input::placeholder) {
+		color: oklch(0.50 0.01 252);
+	}
+	:global(.login-card input.input:focus) {
+		border-color: var(--color-secondary-500);
+		outline: none;
+		box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-secondary-500) 30%, transparent);
+	}
+</style>

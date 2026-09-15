@@ -4,6 +4,6 @@
 
 <header>
 	<a href="/analytics" class="flex flex-col space-x-4 border-b border-surface-800 pb-3 items-center justify-center">
-		<Logo />
+		<Logo variant="dark" />
 	</a>
 </header>

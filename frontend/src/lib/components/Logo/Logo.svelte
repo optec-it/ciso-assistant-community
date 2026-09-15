@@ -2,13 +2,15 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 	import optecMark from '$lib/assets/optec-mark.webp';
+	import optecMarkWhite from '$lib/assets/optec-mark-white.png';
 
 	interface Props {
 		height?: number;
 		width?: number;
+		variant?: 'auto' | 'dark' | 'light';
 	}
 
-	let { height = 200, width = 200 }: Props = $props();
+	let { height = 200, width = 200, variant = 'auto' }: Props = $props();
 
 	let isDark = $state(false);
 
@@ -22,11 +24,15 @@
 		return () => observer.disconnect();
 	});
 
+	const useDark = $derived(variant === 'dark' || (variant === 'auto' && isDark));
+
 	const branding = $derived($page.data?.branding);
 	const src = $derived(
-		isDark && branding?.logo_dark_data
+		useDark && branding?.logo_dark_data
 			? branding.logo_dark_data
-			: branding?.logo_data ?? optecMark
+			: useDark
+				? (branding?.logo_dark_data ?? optecMarkWhite)
+				: (branding?.logo_data ?? optecMark)
 	);
 </script>
 
