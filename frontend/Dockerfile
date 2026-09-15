@@ -5,6 +5,7 @@ WORKDIR /app
 
 ENV PUBLIC_BACKEND_API_URL=foo
 
+RUN apt-get update && apt-get install -y libatomic1 && rm -rf /var/lib/apt/lists/*
 COPY package*.json ./
 COPY . .
 RUN npm install -g pnpm
