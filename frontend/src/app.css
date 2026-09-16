@@ -166,12 +166,12 @@ ul.options.portaled-options > li:not(.active):hover {
 	background-color: var(--color-secondary-600);
 }
 
-/* Sidebar category header hover — orange to match active sub-items */
-nav.scrollbar button:hover {
+/* Override Skeleton accordion trigger hover in sidebar (default is whitish primary-50-950) */
+nav.scrollbar [data-scope="accordion"][data-part="item-trigger"]:hover {
 	background-color: var(--color-secondary-500);
-	border-radius: 0.5rem;
+	color: var(--color-surface-50);
 }
-nav.scrollbar button:hover span,
-nav.scrollbar button:hover svg {
+nav.scrollbar [data-scope="accordion"][data-part="item-trigger"]:hover span,
+nav.scrollbar [data-scope="accordion"][data-part="item-trigger"]:hover svg {
 	color: var(--color-surface-50);
 }
