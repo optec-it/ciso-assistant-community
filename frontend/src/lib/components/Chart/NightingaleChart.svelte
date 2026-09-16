@@ -39,25 +39,24 @@
 				// raw choice keys so safeTranslate resolves them (mirrors backend export).
 				const translateName = (name: string) => safeTranslate(name.replace(/[()]/g, ''));
 
-				// Color mapping for CSF functions
+				// Color mapping for CSF functions — bright, saturated palette
 				const colorMap: Record<string, string> = {
-					'(undefined)': '#505372',
-					Govern: '#D4A017',
-					Identify: '#4A90C4',
-					Protect: '#8B6D96',
-					Detect: '#D4881F',
-					Respond: '#C14647',
-					Recover: '#5A9E63'
+					'(undefined)': '#94a3b8',
+					Govern: '#eab308',
+					Identify: '#3b82f6',
+					Protect: '#a855f7',
+					Detect: '#f97316',
+					Respond: '#ef4444',
+					Recover: '#22c55e'
 				};
 
 				// Map data with specific colors
 				const dataWithColors = values.map((item) => ({
 					...item,
 					itemStyle: {
-						color: colorMap[item.name] || '#505372',
-						borderColor: '#fff',
-						borderWidth: 1,
-						borderRadius: 5
+						color: colorMap[item.name] || '#94a3b8',
+						borderColor: 'rgba(0,0,0,0.12)',
+						borderWidth: 1
 					}
 				}));
 
@@ -77,7 +76,6 @@
 							name: m.csfFunction(),
 							type: 'pie',
 							radius: [20, 100],
-							roseType: 'area',
 							minAngle: 15,
 							label: {
 								formatter: (params: { name: string }) => translateName(params.name)
