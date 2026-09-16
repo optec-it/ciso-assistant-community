@@ -24,7 +24,7 @@
 		names,
 		uuids,
 		title = '',
-		colors = ['#d7dfea', '#74C0DE', '#E66', '#91CC75', '#EAE2D7'],
+		colors = ['#9ca3af', '#4A9AC9', '#E66', '#5BA366', '#b8a892'],
 		seriesNames = [
 			'not assessed',
 			'partially compliant',

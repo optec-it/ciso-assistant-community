@@ -27,10 +27,10 @@ export const BACKEND_API_EXPOSED_URL = `${
 }`;
 
 export const complianceResultColorMap: { [key: string]: string } = {
-	not_assessed: '#d1d5db',
+	not_assessed: '#9ca3af',
 	partially_compliant: '#fde047',
 	non_compliant: '#f87171',
-	compliant: '#86efac',
+	compliant: '#4ade80',
 	not_applicable: '#000000'
 };
 
@@ -78,16 +78,16 @@ export const extendedResultColorMap: { [key: string]: string } = {
 // When a breakdown key is not found here, the chart falls back to DEFAULT_BREAKDOWN_PALETTE.
 export const breakdownSemanticColorMap: { [key: string]: string } = {
 	// Compliance results
-	not_assessed: '#d1d5db',
+	not_assessed: '#9ca3af',
 	partially_compliant: '#fde047',
 	non_compliant: '#f87171',
-	compliant: '#86efac',
+	compliant: '#4ade80',
 	not_applicable: '#1f2937',
 	// Compliance / task / generic statuses
 	to_do: '#9ca3af',
 	in_progress: '#f59e0b',
 	in_review: '#3b82f6',
-	done: '#86efac',
+	done: '#4ade80',
 	// Severity (findings, incidents, vulnerabilities, exceptions)
 	critical: '#dc2626',
 	high: '#ea580c',

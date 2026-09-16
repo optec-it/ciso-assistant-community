@@ -13,7 +13,7 @@
 	let classesActive = $derived((href: string) =>
 		href === page.url.pathname
 			? 'sidebar-active-item'
-			: 'text-surface-300 hover:bg-surface-800/60 hover:text-surface-100'
+			: 'text-surface-100 hover:bg-surface-800/60 hover:text-white'
 	);
 </script>
 

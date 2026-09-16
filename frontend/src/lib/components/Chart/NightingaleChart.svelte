@@ -42,12 +42,12 @@
 				// Color mapping for CSF functions
 				const colorMap: Record<string, string> = {
 					'(undefined)': '#505372',
-					Govern: '#FAE482',
-					Identify: '#85C4EA',
-					Protect: '#B29BBA',
-					Detect: '#FAB647',
-					Respond: '#E47677',
-					Recover: '#8ACB93'
+					Govern: '#D4A017',
+					Identify: '#4A90C4',
+					Protect: '#8B6D96',
+					Detect: '#D4881F',
+					Respond: '#C14647',
+					Recover: '#5A9E63'
 				};
 
 				// Map data with specific colors
