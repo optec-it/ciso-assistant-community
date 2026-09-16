@@ -158,10 +158,10 @@ ul.options.portaled-options > li:not(.active):hover {
 	color: var(--color-secondary-400);
 }
 .sidebar-active-item {
-	color: var(--color-surface-50);
-	background-color: var(--color-secondary-500);
+	color: var(--color-surface-950);
+	background-color: #CFFF92;
 	border-radius: 0.5rem;
 }
 .sidebar-active-item:hover {
-	background-color: var(--color-secondary-600);
+	background-color: #b8e680;
 }

@@ -55,6 +55,8 @@
 					...item,
 					itemStyle: {
 						color: colorMap[item.name] || '#505372',
+						borderColor: '#fff',
+						borderWidth: 1,
 						borderRadius: 5
 					}
 				}));
@@ -76,6 +78,7 @@
 							type: 'pie',
 							radius: [20, 100],
 							roseType: 'area',
+							minAngle: 15,
 							label: {
 								formatter: (params: { name: string }) => translateName(params.name)
 							},
